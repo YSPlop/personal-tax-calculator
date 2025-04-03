@@ -1,0 +1,30 @@
+.pageContainer {
+  /* Replicates container, mx-auto, py-8 */
+  /* Uses the global container for max-width and horizontal centering/padding */
+  padding-top: 2rem; /* py-8 */
+  padding-bottom: 2rem; /* py-8 */
+}
+
+.header {
+  /* Replicates text-center, mb-8 */
+  text-align: center;
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+.title {
+  /* Replicates text-3xl, font-bold, text-primary-purple, mb-2 */
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  color: var(--primary-purple); /* text-primary-purple */
+  margin-bottom: 0.5rem; /* mb-2 */
+  /* Font family is inherited from globals.css */
+}
+
+.disclaimer {
+  /* Replicates text-sm, text-text-dark, opacity-75 */
+  font-size: 0.875rem; /* text-sm */
+  color: var(--text-dark); /* text-text-dark */
+  opacity: 0.75;
+  /* Font family is inherited from globals.css */
+  font-family: var(--font-jetbrains-mono), monospace;
+} 

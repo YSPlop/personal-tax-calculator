@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --primary-purple: #9d7bb8;
+  --secondary-purple: #b69cd4;
+  --background-beige: #f8f5ff;
+  --text-dark: #2d2235;
+  --shadow: rgba(157, 123, 184, 0.15);
+}
+
+body {
+  background-color: var(--background-beige);
+  font-family: 'Lato', sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+} 
