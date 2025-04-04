@@ -22,7 +22,7 @@
 
 .disclaimer {
   /* Replicates text-sm, text-text-dark, opacity-75 */
-  font-size: 0.875rem; /* text-sm */
+  font-size: 1.25rem; /* text-sm */
   color: var(--text-dark); /* text-text-dark */
   opacity: 0.75;
   /* Font family is inherited from globals.css */

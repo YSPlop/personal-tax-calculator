@@ -19,10 +19,48 @@ interface TaxResult {
 
 export default function TaxCalculator() {
   const [income, setIncome] = useState('');
+  const [displayIncome, setDisplayIncome] = useState('');
   const [period, setPeriod] = useState<'yearly' | 'monthly'>('yearly');
   const [hasMedicare, setHasMedicare] = useState(true);
   const [hasHECS, setHasHECS] = useState(false);
   const [result, setResult] = useState<TaxResult | null>(null);
+
+  // Format number with commas
+  const formatNumberWithCommas = (value: string) => {
+    // Remove any non-digit characters
+    const numericValue = value.replace(/[^\d]/g, '');
+    
+    // Format with commas
+    if (numericValue) {
+      return new Intl.NumberFormat('en-US').format(parseInt(numericValue));
+    }
+    return '';
+  };
+
+  // Format currency values with full numbers
+  const formatCurrency = (value: number) => {
+    return `$${value.toLocaleString(undefined, { 
+      minimumFractionDigits: 2, 
+      maximumFractionDigits: 2 
+    })}`;
+  };
+
+  // Handle income input change
+  const handleIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    
+    // Remove any non-digit characters
+    const numericValue = inputValue.replace(/[^\d]/g, '');
+    
+    // Limit to a maximum value (999,999,999)
+    const limitedValue = numericValue.slice(0, 9);
+    
+    // Store the raw numeric value for calculations
+    setIncome(limitedValue);
+    
+    // Format the display value with commas
+    setDisplayIncome(formatNumberWithCommas(limitedValue));
+  };
 
   useEffect(() => {
     const incomeNumber = Number(income);
@@ -44,6 +82,7 @@ export default function TaxCalculator() {
 
   const resetCalculator = () => {
     setIncome('');
+    setDisplayIncome('');
     setPeriod('yearly');
     setHasMedicare(true);
     setHasHECS(false);
@@ -59,9 +98,9 @@ export default function TaxCalculator() {
           <label className={styles.label}>Income</label>
           <div className={styles.inputGroup}>
             <input
-              type="number"
-              value={income}
-              onChange={(e) => setIncome(e.target.value)}
+              type="text"
+              value={displayIncome}
+              onChange={handleIncomeChange}
               disabled={inputsDisabled}
               className={styles.input}
               placeholder="Enter your income"
@@ -140,7 +179,7 @@ export default function TaxCalculator() {
                   transition={{ delay: 0.1 }}
                 >
                   <h3>Yearly</h3>
-                  <p>${result.yearly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                  <p>{formatCurrency(result.yearly)}</p>
                 </motion.div>
                 <motion.div
                   className={styles.resultCard}
@@ -149,7 +188,7 @@ export default function TaxCalculator() {
                   transition={{ delay: 0.15 }}
                 >
                   <h3>Monthly</h3>
-                  <p>${result.monthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                  <p>{formatCurrency(result.monthly)}</p>
                 </motion.div>
                 <motion.div
                   className={styles.resultCard}
@@ -158,7 +197,7 @@ export default function TaxCalculator() {
                   transition={{ delay: 0.2 }}
                 >
                   <h3>Fortnightly</h3>
-                  <p>${result.fortnightly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                  <p>{formatCurrency(result.fortnightly)}</p>
                 </motion.div>
               </div>
 
@@ -173,23 +212,23 @@ export default function TaxCalculator() {
                   <div className={styles.breakdownGrid}>
                     <div className={styles.breakdownItem}>
                       <span>Income Tax</span>
-                      <span>${result.breakdown.incomeTax.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      <span>{formatCurrency(result.breakdown.incomeTax)}</span>
                     </div>
                     {hasMedicare && (
                       <div className={styles.breakdownItem}>
                         <span>Medicare Levy</span>
-                        <span>${result.breakdown.medicareLevy.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                        <span>{formatCurrency(result.breakdown.medicareLevy)}</span>
                       </div>
                     )}
                     {hasHECS && (
                       <div className={styles.breakdownItem}>
                         <span>HECS Repayment</span>
-                        <span>${result.breakdown.hecsRepayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                        <span>{formatCurrency(result.breakdown.hecsRepayment)}</span>
                       </div>
                     )}
                     <div className={styles.breakdownTotal}>
                       <span>Total Deductions</span>
-                      <span>${result.breakdown.totalDeductions.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      <span>{formatCurrency(result.breakdown.totalDeductions)}</span>
                     </div>
                   </div>
                 </motion.div>

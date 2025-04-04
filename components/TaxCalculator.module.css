@@ -190,6 +190,10 @@
   box-shadow: 0 4px 10px var(--shadow);
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .resultCard h3 {
@@ -201,6 +205,8 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-dark);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .label {
@@ -246,8 +252,13 @@
   border-radius: 0.25rem;
 }
 
-.breakdownItem span:last-child {
+.breakdownItem span:last-child,
+.breakdownTotal span:last-child {
   font-weight: 500;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 60%;
+  text-align: right;
 }
 
 .breakdownTotal {
@@ -276,6 +287,11 @@
   .resultGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .resultCard {
+    min-height: auto;
+    padding: 1.25rem;
   }
 
   .resultCard p {
@@ -331,5 +347,17 @@
 
   .resetButton {
     width: auto;
+  }
+
+  .breakdownItem,
+  .breakdownTotal {
+    flex-wrap: wrap;
+  }
+  
+  .breakdownItem span:last-child,
+  .breakdownTotal span:last-child {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 0.25rem;
   }
 }
