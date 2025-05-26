@@ -70,23 +70,23 @@ const HowWeCalculate = () => {
               <tbody>
                 <tr>
                   <td className={styles.tableCell}>$0 - $18,200</td>
-                  <td className={styles.tableCell}>0%</td>
+                  <td className={styles.tableCell}>Nil</td>
                 </tr>
                 <tr>
                   <td className={styles.tableCell}>$18,201 - $45,000</td>
-                  <td className={styles.tableCell}>19¢ for each $1 over $18,200</td>
+                  <td className={styles.tableCell}>16¢ for each $1 over $18,200</td>
                 </tr>
                 <tr>
-                  <td className={styles.tableCell}>$45,001 - $120,000</td>
-                  <td className={styles.tableCell}>$5,092 plus 32.5¢ for each $1 over $45,000</td>
+                  <td className={styles.tableCell}>$45,001 - $135,000</td>
+                  <td className={styles.tableCell}>$4,288 plus 30¢ for each $1 over $45,000</td>
                 </tr>
                 <tr>
-                  <td className={styles.tableCell}>$120,001 - $180,000</td>
-                  <td className={styles.tableCell}>$29,467 plus 37¢ for each $1 over $120,000</td>
+                  <td className={styles.tableCell}>$135,001 - $190,000</td>
+                  <td className={styles.tableCell}>$31,288 plus 37¢ for each $1 over $135,000</td>
                 </tr>
                 <tr>
-                  <td className={styles.tableCell}>$180,001 and over</td>
-                  <td className={styles.tableCell}>$51,667 plus 45¢ for each $1 over $180,000</td>
+                  <td className={styles.tableCell}>$190,001 and over</td>
+                  <td className={styles.tableCell}>$51,638 plus 45¢ for each $1 over $190,000</td>
                 </tr>
               </tbody>
             </table>
@@ -99,9 +99,9 @@ const HowWeCalculate = () => {
             </div>
             <ul className={styles.exampleList}>
               <li>First $18,200: No tax (tax-free threshold)</li>
-              <li>$18,201 to $45,000 ($26,800): 19% = $5,092</li>
-              <li>$45,001 to $60,000 ($15,000): 32.5% = $4,875</li>
-              <li>Total tax: $9,967</li>
+              <li>$18,201 to $45,000 ($26,800): 16¢ per $1 = $4,288</li>
+              <li>$45,001 to $60,000 ($15,000): 30¢ per $1 = $4,500</li>
+              <li>Total tax: $8,788</li>
             </ul>
           </div>
         </motion.section>
@@ -195,13 +195,13 @@ const HowWeCalculate = () => {
               For someone earning $65,000 with HECS/HELP debt:
             </div>
             <ul className={styles.exampleList}>
-              <li>Income Tax: ~$12,967</li>
+              <li>Income Tax: ~$11,067</li>
               <li>Medicare Levy: $1,300</li>
               <li>HECS/HELP: $1,300</li>
-              <li>Total Deductions: $15,567</li>
-              <li>Take-home pay: $49,433 per year</li>
-              <li>Monthly: $4,119</li>
-              <li>Fortnightly: $1,901</li>
+              <li>Total Deductions: $13,667</li>
+              <li>Take-home pay: $51,333 per year</li>
+              <li>Monthly: $4,278</li>
+              <li>Fortnightly: $1,974</li>
             </ul>
           </div>
         </motion.section>

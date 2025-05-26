@@ -28,9 +28,9 @@ interface TaxResult {
 const TAX_BRACKETS: TaxBracket[] = [
   { lower: 0, upper: 18200, rate: 0, base: 0 },
   { lower: 18201, upper: 45000, rate: 0.16, base: 0 },
-  { lower: 45001, upper: 120000, rate: 0.30, base: 5096 },
-  { lower: 120001, upper: 180000, rate: 0.37, base: 26096 },
-  { lower: 180001, upper: Infinity, rate: 0.45, base: 48296 }
+  { lower: 45001, upper: 135000, rate: 0.30, base: 5096 },
+  { lower: 135001, upper: 190000, rate: 0.37, base: 26096 },
+  { lower: 190001, upper: Infinity, rate: 0.45, base: 48296 }
 ];
 
 const MEDICARE_LEVY_RATE = 0.02;
